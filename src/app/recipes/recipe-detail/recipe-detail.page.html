@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details of {{selectedRecipe.name}}</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/recipes"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="primary">
+        <ion-button (click) = "onDeleteRecipe()">
+            <ion-icon slot="end" name="trash"></ion-icon>
+         </ion-button>
+    </ion-buttons>
+     
+        
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            <img [src] = 'selectedRecipe.imageUrl' />
+
+          <ion-card-subtitle>{{selectedRecipe.name}}</ion-card-subtitle>
+          <ion-card-title>{{selectedRecipe.description}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-list-header>
+                    <ion-label>Ingredients</ion-label>
+                  </ion-list-header>
+                <ion-item *ngFor='let ing of selectedRecipe.ingredients'>
+                  <ion-label>{{ing}}</ion-label>
+                </ion-item>
+              </ion-list>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>
